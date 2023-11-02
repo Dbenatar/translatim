@@ -3,17 +3,17 @@ import { useState } from "react";
 import axios from "axios";
 
 function App() {
-  const [from, setFrom] = useState("ar");
-  const [to, setTo] = useState("es");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
 
   const [word, setWord] = useState("");
-  const [translation, setTranslation] = useState({});
+  const [translation, setTranslation] = useState("");
 
   async function handleTranslate(event) {
     event.preventDefault();
     const API = `http://localhost:8080/translate?word=${word}&from=${from}&to=${to}`;
     const res = await axios.get(API);
-    console.log(res.data);
+    setTranslation(res.data.translation);
   }
 
   return (
@@ -34,17 +34,14 @@ function App() {
         </div>
 
         <div className="container">
-          <select onChange={(event) => setFrom(event.target.value)}>
+          <select onChange={(event) => setTo(event.target.value)}>
             <option value="ar">Arabic</option>
             <option value="en">English</option>
             <option value="pl">Polish</option>
             <option value="es">Spanish</option>
             <option value="tr">Turkish</option>
           </select>
-          <input
-            placeholder="Translate"
-            onChange={(event) => setWord(event.target.value)}
-          />
+          <div className="output">{translation}</div>
         </div>
         <button>Submit</button>
       </form>
