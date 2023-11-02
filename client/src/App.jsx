@@ -1,35 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useState } from "react";
+import axios from "axios";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [from, setFrom] = useState("ar");
+  const [to, setTo] = useState("es");
+
+  const [word, setWord] = useState("");
+  const [translation, setTranslation] = useState({});
+
+  async function handleTranslate(event) {
+    event.preventDefault();
+    const API = `http://localhost8080.translate?word=hello&from=en&to=es`;
+    const res = await axios.get(API);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <form onSubmit={handleTranslate}>
+        <div className="container">
+          <select onChange={(event) => setFrom(event.target.value)}>
+            <option value="ar">Arabic</option>
+            <option value="en">English</option>
+            <option value="pl">Polish</option>
+            <option value="es">Spanish</option>
+            <option value="tr">Turkish</option>
+          </select>
+          <input
+            placeholder="Translate"
+            onChange={(event) => setWord(event.target.value)}
+          />
+        </div>
+
+        <div className="container">
+          <select onChange={(event) => setFrom(event.target.value)}>
+            <option value="ar">Arabic</option>
+            <option value="en">English</option>
+            <option value="pl">Polish</option>
+            <option value="es">Spanish</option>
+            <option value="tr">Turkish</option>
+          </select>
+          <input
+            placeholder="Translate"
+            onChange={(event) => setWord(event.target.value)}
+          />
+        </div>
+      </form>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
