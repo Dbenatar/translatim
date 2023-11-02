@@ -7,7 +7,7 @@ body {
 .container {
   display: flex;
   flex-wrap: wrap;
-  padding:10px;
+  padding: 10px;
 }
 select,
 input {
@@ -17,7 +17,6 @@ input {
   width: 500px;
   max-width: 500px;
   gap: 10px;
-  
 }
 
 .output {
@@ -43,3 +42,7 @@ button {
   box-shadow: 0px 0px 2px 2px rgb(181, 177, 177);
 }
 
+button:active {
+  zoom: 110%;
+  transition: 0.7s;
+}
