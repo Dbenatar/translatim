@@ -1,0 +1,45 @@
+body {
+  margin: 50px 40%;
+  background-color: #076938;
+  color: #c0bec4;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding:10px;
+}
+select,
+input {
+  background-color: #c0bec4;
+  color: #076938;
+  max-height: 20px;
+  width: 500px;
+  max-width: 500px;
+  gap: 10px;
+  
+}
+
+.output {
+  display: inline-flexbox;
+  flex-wrap: wrap;
+  padding: 5px;
+  margin: 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  color: whitesmoke;
+  max-height: 20px;
+  width: 50px;
+  max-width: 50%;
+}
+
+button {
+  border: 5px solid #c0bec4;
+  border-radius: 15px;
+  color: #076938;
+  margin: 50px;
+  font-size: 2rem;
+  padding: 10px;
+  box-shadow: 0px 0px 2px 2px rgb(181, 177, 177);
+}
+
