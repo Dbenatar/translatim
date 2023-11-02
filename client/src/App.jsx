@@ -11,8 +11,9 @@ function App() {
 
   async function handleTranslate(event) {
     event.preventDefault();
-    const API = `http://localhost8080.translate?word=hello&from=en&to=es`;
+    const API = `http://localhost:8080/translate?word=${word}&from=${from}&to=${to}`;
     const res = await axios.get(API);
+    console.log(res.data);
   }
 
   return (
@@ -45,6 +46,7 @@ function App() {
             onChange={(event) => setWord(event.target.value)}
           />
         </div>
+        <button>Submit</button>
       </form>
     </>
   );

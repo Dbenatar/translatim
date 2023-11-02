@@ -6,9 +6,7 @@ const app = express();
 app.use(cors());
 const axios = require("axios");
 
-app.get("/", (_, response) =>
-  response._construct.json("Roote route for Translatim")
-);
+app.get("/", (_, response) => response.json("Roote route for Translatim"));
 
 app.get("/translate", async (request, response) => {
   const { word, from, to } = request.query;
